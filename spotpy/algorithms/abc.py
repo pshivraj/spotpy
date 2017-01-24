@@ -246,4 +246,3 @@ class abc(_algorithm):
             self.datawriter.finalize()
         except AttributeError:  # Happens if no database was assigned
             pass
-
