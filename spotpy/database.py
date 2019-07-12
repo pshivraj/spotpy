@@ -240,7 +240,7 @@ class sql(database):
             os.remove(self.dbname + '.db')
         except:
             pass
-        self.db = sqlite3.connect(self.dbname + '.db')
+        self.db = sqlite3.connect(self.dbname + '.db', timeout=86400000000.0)
         self.db_cursor = self.db.cursor()
         # Create Table
 #        self.db_cursor.execute('''CREATE TABLE IF NOT EXISTS  '''+self.dbname+'''
@@ -273,7 +273,7 @@ class sql(database):
 
     def getdata(self):
         import sqlite3
-        self.db = sqlite3.connect(self.dbname + '.db')
+        self.db = sqlite3.connect(self.dbname + '.db', timeout=86400000000.0)
         self.db_cursor = self.db.cursor()
         back = [row for row in self.db_cursor.execute('SELECT * FROM '+self.dbname)]
         self.db.close()
